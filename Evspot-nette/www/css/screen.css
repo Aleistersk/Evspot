@@ -1,0 +1,197 @@
+/*** Layout ***/
+body {
+  text-align: left;
+  font-family :Verdana,Arial;
+  font-style:normal;
+  font-variant:normal;
+  font-weight:normal;
+  font-size:12pt;
+  color:#FFFFFF;
+  background-color:black;
+}
+
+#header {
+	background: #333;
+	border-bottom: 5px solid #E4E2DA;
+}
+
+#header div.title {
+	color: white;
+	padding: 8px 0;
+	font-size: 150%;
+	text-shadow: rgba(0, 0, 0, 0.5) 1px 1px 2px;
+}
+
+#header a {
+	color: #FFF499;
+}
+
+#header div.user {
+	padding: 12px 1em;
+	color: #FFF;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+#header-inner {
+	width: 900px;
+	margin: 0 auto;
+	position: relative;
+}
+
+#container {
+	overflow: hidden;
+	width: 900px;
+	margin: 0 auto;
+}
+
+#sidebar {
+	float: left;
+	width: 210px;
+}
+
+#content {
+	margin-left: 220px;
+	padding: 20px;
+}
+
+#footer {
+	margin: 2em;
+	text-align: center;
+	font-size: smaller;
+}
+
+
+/*** Navigation ***/
+div.task-lists ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: block;
+}
+
+div.task-lists li {
+	display: block;
+}
+
+div.task-lists a {
+	text-decoration: none;
+	display: block;
+	font-size: 120%;
+}
+
+
+/*** Typo ***/
+h1 {
+	font-size: 230%;
+	font-weight: normal;
+	margin: 0 0 .6em;
+	text-align: center;
+}
+
+h2 {
+	font-size: 140%;
+	font-weight: normal;
+	margin: 1em 0 .6em;
+}
+
+a {
+	/*color: #006aeb;*/
+	color: red;
+	font-weight: bold
+	text-decoration: none;
+	border-radius: 3px;
+}
+a:hover, a:active, a:focus {
+	background-color: #006aeb;
+	color: #ffffff;
+}
+
+/*** Flash messages ***/
+div.flash {
+	padding: .8em;
+	margin-bottom: 1em;
+	border: 2px solid #ddd;
+}
+
+div.flash.success {
+	background: #E6EFC2;
+	color: #264409;
+	border-color: #C6D880;
+}
+
+div.flash.info {
+	background: #FFF6BF;
+	color: #514721;
+	border-color: #FFD324;
+}
+
+div.flash.error {
+	background: #FBE3E4;
+	color: #8a1f11;
+	border-color: #FBC2C4;
+}
+
+/*** Moje vlastne ***/
+#skryvaj {visibility:hidden}
+
+.error
+{
+   font-family: Verdana, Arial, sans-serif; 
+   font-size: 0.7em;
+   color: #900;
+   background-color : #ffff00;
+}
+
+
+.kratka_poznamka
+{
+   font-family : Arial, sans-serif;
+   font-size: 0.8em;
+   color:#E00020;   
+}
+
+hr {
+color: #eee;
+background-color: #000;
+height: 2px;
+}
+
+.container
+{
+   margin-top:8px;
+   margin-bottom: 10px;
+}
+
+fieldset
+{
+   width: 230px;
+   padding:20px;
+   border:1px solid #ccc;
+   text-align: left;
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+-khtml-border-radius: 10px;
+border-radius: 10px;   
+}
+
+legend{
+   color: red;
+}
+
+.sub {
+font-size:110%;
+color:#c00;
+font-weight:bold;
+}
+
+.sublog {
+color:#c00;
+font-weight:bold;
+}
+
+.res {
+font-size:70%;
+color:#555;
+}

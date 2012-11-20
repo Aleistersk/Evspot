@@ -1,0 +1,30 @@
+﻿{* This is the welcome page *}
+
+{block content}
+</BR></BR>
+<div id="container">
+	<h1 n:block=title>Evidovanie spotreby zariadení v domácnosti.</h1>
+	</BR>
+ <div align="center">
+	<a n:href="Register:">REGISTRÁCIA</a>
+	
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	
+	<a n:href="Sign:in"></a>
+	<a n:href="Sign:in">Prihlásenie</a>
+ </div>
+
+
+ <div align="center">
+    <img src="images/evspot_logo.jpg" alt="EVSPOT logo">         
+    <BR />
+    <h2>V I T A J T E !</h2><BR />
+ </div>
+
+</div>
+
+{/block}

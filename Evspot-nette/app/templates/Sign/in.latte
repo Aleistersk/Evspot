@@ -1,0 +1,41 @@
+﻿{var $robots = noindex}
+
+{block #content}
+<BR />
+<h1 n:block=title>Prihlásenie do systému EVSPOT.</h1>
+<BR />
+
+{form signInForm}
+<div class="sign-in-form" align="center">
+    {control $form errors}
+
+    <fieldset>
+      <legend>Login</legend>
+
+      <div class='kratka_poznamka'>* Potrebné vyplniť!</div><BR />
+      
+      <div class='container'>
+        {label nickname /}<BR />
+        {input nickname}<BR />
+      </div>
+      <div class='container'>
+        {label heslo /}<BR />
+        {input heslo}<BR />
+      </div>
+
+      <div class='container'>
+        {input remember} {label remember /}<BR />
+      </div>
+
+      <BR />
+      <div class='container'>
+        {input send} {input cancel}
+      </div>
+    </fieldset>
+</div>
+
+<div align="center">
+<BR /><BR />
+<a n:href="Homepage:">Späť na hlavnú stránku.</a>
+</div>
+{/form}

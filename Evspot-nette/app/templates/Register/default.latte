@@ -1,0 +1,50 @@
+﻿{block #content}
+<div id="banner">
+	<h1 n:block=title>Registrácia do systému EVSPOT.</h1>
+</div>
+<BR />
+
+{form registerForm}
+<div class="register-form" align="center">
+    {control $form errors}
+
+    <fieldset>
+      <legend>Registrácia</legend>
+
+      <div class='kratka_poznamka'>* Potrebné vyplniť!</div><BR />
+      
+      <div class='container'>
+        {label meno /}<BR />
+        {input meno}<BR />
+      </div>
+      <div class='container'>
+        {label priezvisko /}<BR />
+        {input priezvisko}<BR />
+      </div>
+      <div class='container'>
+        {label email /}<BR />
+        {input email}<BR />
+      </div>
+      <div class='container'>
+        {label nickname /}<BR />
+        {input nickname}<BR />
+      </div>
+      <div class='container'>
+        {label heslo /}<BR />
+        {input heslo}<BR />
+      </div>
+
+      <BR />
+      <div class='container'>
+        {input register} {input cancel}
+      </div>
+    </fieldset>
+</div>
+
+<div align="center">
+<BR /><BR />
+<a n:href="Homepage:">Späť na hlavnú stránku.</a>
+</div>
+{/form}
+
+{/block}
