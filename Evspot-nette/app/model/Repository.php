@@ -18,9 +18,6 @@ abstract class Repository extends Nette\Object
      */
     protected function getTable($table)
     {
-        
-        //preg_match('#(\w+)Repository$#', get_class($this), $m);
-
         return $this->connection->table($table);
     }
 

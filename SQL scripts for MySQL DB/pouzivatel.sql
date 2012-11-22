@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `pouzivatel` (
   `Priezvisko` varchar(20) COLLATE utf8_slovak_ci DEFAULT NULL,
   `Nickname` varchar(15) COLLATE utf8_slovak_ci NOT NULL,
   `Email` varchar(20) COLLATE utf8_slovak_ci NOT NULL,
-  `Heslo` varchar(32) COLLATE utf8_slovak_ci NOT NULL,
+  `Heslo` varchar(60) COLLATE utf8_slovak_ci NOT NULL,
   PRIMARY KEY (`id_p`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=4 ;
 

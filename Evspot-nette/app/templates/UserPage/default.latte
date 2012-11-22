@@ -1,6 +1,6 @@
-﻿{block #content}
+{block #content}
 <div id="banner">
-	<h1 n:block=title>Vitajte v systeme EVSPOT.</h1>
+	<h1 n:block=title>Vitajte '{$user->getIdentity()->Nickname}' v systéme EVSPOT. <a n:href="signOut!">Odhlásiť!</a></h1>
 </div>
 <BR />
 

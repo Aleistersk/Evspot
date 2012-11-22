@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 use Nette\Application\UI;
 
@@ -52,17 +52,13 @@ class SignPresenter extends BasePresenter
             			$user->setExpiration('+30 days', FALSE);
         		}
         		$user->login($values->nickname, $values->heslo);
-        		$this->flashMessage('Prihlasenie bolo uspesne.', 'success');
+        		//$this->flashMessage('Prihlasenie bolo uspesne.', 'success');
         		$this->redirect('UserPage:');
     		} 
 		catch (Nette\Security\AuthenticationException $e) {
-        		$form->addError('Neplatne pouzivatelske meno alebo heslo.');
+        		$form->addError('Neplatné používateľské meno, alebo heslo. Zadajte znova!');
     		}
 
-
-
-
-		//$this->redirect('UserPage:');
 	}
 
 
@@ -70,7 +66,7 @@ class SignPresenter extends BasePresenter
 	public function actionOut()
 	{
 		$this->getUser()->logout();
-		$this->flashMessage('You have been signed out.');
+		$this->flashMessage('Boli ste odhlásený zo systému.');
 		$this->redirect('in');
 	}
 
