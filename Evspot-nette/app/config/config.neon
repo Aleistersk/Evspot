@@ -25,9 +25,12 @@ common:
 			expiration: +30 days
 
 	services:
-		authenticator: Authenticator
+		authenticator: Evspot\Authenticator
 		userRepository: Evspot\UserRepository
-
+		deviceRepository: Evspot\DeviceRepository
+		cathegoryRepository: Evspot\CathegoryRepository
+		rateRepository: Evspot\RateRepository
+    
 	factories:
 
 

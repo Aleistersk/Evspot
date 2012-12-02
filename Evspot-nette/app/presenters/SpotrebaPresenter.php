@@ -2,9 +2,9 @@
 use Nette\Application\UI;
 
 /**
- * UserPage presenter.
+ * Spotreba presenter.
  */
-class UserPagePresenter extends BasePresenter
+class SpotrebaPresenter extends BasePresenter
 {
 
 
@@ -14,6 +14,8 @@ class UserPagePresenter extends BasePresenter
 	private $deviceRepository;
 	/** @var Evspot\CathegoryRepository */
 	private $cathegoryRepository;
+	/** @var Evspot\CathegoryRepository */
+	private $rateRepository;
   
   private $userId;
 
@@ -22,6 +24,7 @@ class UserPagePresenter extends BasePresenter
 		$this->userRepository = $userRepository;
     $this->deviceRepository = $this->context->deviceRepository;
     $this->cathegoryRepository = $this->context->cathegoryRepository;
+    $this->rateRepository = $this->context->rateRepository;
     $this->userId = $this->getUser()->getId();
 	}
 
@@ -38,35 +41,26 @@ class UserPagePresenter extends BasePresenter
   
   public function renderDefault()
   {
-    $this->template->devices = $this->deviceRepository->findByIdp($this->userId);
+    $this->template->pocet=$this->cathegoryRepository->countCath();
+    $this->template->rows=$this->cathegoryRepository->findAll('kategoria');
   }
   
-  protected function createComponentAddDeviceForm()
+  protected function createComponentBackForm()
 	{
-    $catPairs = $this->cathegoryRepository->findAll('kategoria')->fetchPairs('id_kat', 'Nazov') ;
     $form = new UI\Form;
-    $form->addSubmit('add','PRIDAŤ zariadenie')
+    $form->addSubmit('back','HL. STRÁNKA')
             ->setAttribute('class', 'tlacitko')
-            ->onClick[] = $this->addDeviceFormSubmitted;
-    $form->addSubmit('vypis','Celková spotreba')
-            ->setAttribute('class', 'tlacitko')
-            ->onClick[] = $this->vypisSpotFormSubmitted;
-            
-    $form->addSelect('kategoria','KATEGÓRIA:',$catPairs)
-            ->setPrompt('- VŠETKY -');
+            ->onClick[] = $this->backFormSubmitted;
 		return $form;
   }
+
+
+  public function backFormSubmitted($form)
+	{
+    $this->redirect('UserPage:'); // presmeruj na hl. stranku usera    
+  }
   
-  public function addDeviceFormSubmitted($form)
-	{
-    $this->redirect('Device:'); // presmeruj na pridanie zariadenia    
-  }
-
-  public function vypisSpotFormSubmitted($form)
-	{
-    $this->redirect('Spotreba:'); // presmeruj na vypis celkovej spotreby    
-  }
-
+  
 	public function handleSignOut()
 	{
 		$this->getUser()->logout();
