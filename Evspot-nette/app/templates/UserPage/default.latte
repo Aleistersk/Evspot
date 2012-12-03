@@ -43,8 +43,8 @@
         <td>{$row->Prikon}</td>
         <td>{$row->odh_spot}</td>
         <td>{$row->nam_spot}</td>
-        <td>U</td>
-        <td>D</td>
+        <td><a n:href="UpdateRow! $row->id_zar">U</a></td>
+        <td><a n:href="DeleteRow! $row->id_zar">D</a></td>
     </tr>
     {/foreach}
     </tbody>

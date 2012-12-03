@@ -74,5 +74,16 @@ class UserPagePresenter extends BasePresenter
 		$this->redirect('Sign:in');
 	}
 
+  public function handleDeleteRow($id)
+	{
+		$this->deviceRepository->deleteRow($id); // volaj delete metodu
+		$this->redirect('this');
+	}
+  
+  public function handleUpdateRow($id)
+	{
+		// TODO:Update
+		$this->redirect('this');
+	}
 
 }

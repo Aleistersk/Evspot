@@ -24,6 +24,13 @@ class DeviceRepository extends Repository
     		return $this->findAll('zariadenie')->where(array('id_p' => $id));
 	}	
 
+  /* Vymazanie zariadenia podla Id_zariadenia */
+	public function deleteRow($id)
+	{
+    		return $this->findAll('zariadenie')->where('id_zar', $id)->fetch()->delete();
+	}	
+  
+  
 	/* Pridanie noveho zariadenia vlozenim do tabulky DB */
 	public function addDevice($nazov,$odhadc,$prikon,$namspot,$id_kat,$odhad,$userId,$id_s)
 	{
