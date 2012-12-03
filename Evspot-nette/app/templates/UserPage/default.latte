@@ -24,14 +24,14 @@
 <table>
     <thead>
     <tr>
-        <th>Id</th>
-        <th>Názov</th>
-        <th>Odhadovaný čas</th>
-        <th>Príkon</th>
-        <th>Odhadovaná spotreba</th>
-        <th>Nameraná spotreba</th>
-        <th>Update</th>
-        <th>Delete</th>
+        <th>Id.</th>
+        <th>Názov zariadenia</th>
+        <th>Odhadovaný čas používania/deň [hod.]</th>
+        <th>Príkon [kW]</th>
+        <th>Odhadovaná denná spotreba [kWh]</th>
+        <th>Nameraná denná spotreba [kWh]</th>
+        <th>Upraviť</th>
+        <th>Vymazať</th>
     </tr>
     </thead>
     <tbody>
@@ -39,12 +39,12 @@
     <tr>
         <td>{$row->id_zar}</td>
         <td>{$row->Nazov}</td>
-        <td>{$row->odh_cas}</td>
-        <td>{$row->Prikon}</td>
-        <td>{$row->odh_spot}</td>
-        <td>{$row->nam_spot}</td>
-        <td><a n:href="UpdateRow! $row->id_zar">U</a></td>
-        <td><a n:href="DeleteRow! $row->id_zar">D</a></td>
+        <td align="center">{$row->odh_cas}</td>
+        <td align="center">{$row->Prikon}</td>
+        <td align="center">{$row->odh_spot}</td>
+        <td align="center">{$row->nam_spot}</td>
+        <td align="center"><a n:href="UpdateRow! $row->id_zar">Uprav!</a></td>
+        <td align="center"><a n:href="DeleteRow! $row->id_zar">Vymaž!</a></td>
     </tr>
     {/foreach}
     </tbody>

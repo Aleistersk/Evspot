@@ -53,18 +53,18 @@ class DevicePresenter extends BasePresenter
     $form = new UI\Form;
     $form->addText('nazov', 'Názov zariadenia:')
 			->setRequired('Zadajte názov zariadenia!');
-    $form->addText('odhadc', 'Odhadovaný čas:')
+    $form->addText('odhadc', 'Odhadovaný čas/deň:')
 			->setRequired('Zadajte odhadovaný čas!')
-      ->addRule($form::FLOAT, 'Odhadovaný čas musí obsahovať číslo!')
-      ->addRule($form::RANGE, 'Odhadovaný čas musí byť > 0', array(0, 100));
+      ->addRule($form::FLOAT, 'Odhadovaný čas používania musí obsahovať číslo!')
+      ->addRule($form::RANGE, 'Odhadovaný čas pouťívania musí byť > 0', array(0, 100));
     $form->addText('prikon', 'PRÍKON:')
 			->setRequired('Zadajte príkon zariadenia!')
       ->addRule($form::FLOAT, 'Príkon musí obsahovať číslo!')
       ->addRule($form::RANGE, 'Príkon musí byť > 0', array(0, 100000));;
-    $form->addText('namspot', 'Nameraná spotreba:')
-			->setRequired('Zadajte nameranú spotrebu!')
-      ->addRule($form::FLOAT, 'Nameraná spotreba musí obsahovať číslo!')
-      ->addRule($form::RANGE, 'Nameraná spotreba musí byť > 0', array(0, 1000000));;
+    $form->addText('namspot', 'Nameraná denná spotreba:')
+			->setRequired('Zadajte nameranú dennú spotrebu!')
+      ->addRule($form::FLOAT, 'Nameraná denná spotreba musí obsahovať číslo!')
+      ->addRule($form::RANGE, 'Nameraná denná spotreba musí byť > 0', array(0, 1000000));;
             
     $form->addSelect('kategoria','KATEGÓRIA:',$catPairs)
             ->setPrompt('-Vyberte kategóriu-')
