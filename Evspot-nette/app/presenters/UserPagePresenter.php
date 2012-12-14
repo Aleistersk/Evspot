@@ -1,5 +1,6 @@
 <?php
 use Nette\Application\UI;
+use Nette\Templating\Template;
 
 /**
  * UserPage presenter.
@@ -16,6 +17,7 @@ class UserPagePresenter extends BasePresenter
 	private $cathegoryRepository;
   
   private $userId;
+  private $kategoria='';
 
 	public function inject(Evspot\UserRepository $userRepository)
 	{
@@ -38,13 +40,20 @@ class UserPagePresenter extends BasePresenter
   
   public function renderDefault()
   {
-    $this->template->devices = $this->deviceRepository->findByIdp($this->userId);
+      $this->template->devices = $this->deviceRepository->findByIdp($this->userId);
+  }
+  
+  public function renderChange($kategoria)
+  {
+    $this->template->devices = $this->deviceRepository->findByIdpKat($this->userId,$kategoria);
+    $this->kategoria=$kategoria; // zapamataj si zvolenu kategoriu
+    
   }
   
   protected function createComponentAddDeviceForm()
 	{
     $catPairs = $this->cathegoryRepository->findAll('kategoria')->fetchPairs('id_kat', 'Nazov') ;
-    $form = new UI\Form;
+    $form = new UI\Form($this,'addDeviceForm');
     $form->addSubmit('add','PRIDAŤ zariadenie')
             ->setAttribute('class', 'tlacitko')
             ->onClick[] = $this->addDeviceFormSubmitted;
@@ -53,19 +62,47 @@ class UserPagePresenter extends BasePresenter
             ->onClick[] = $this->vypisSpotFormSubmitted;
             
     $form->addSelect('kategoria','KATEGÓRIA:',$catPairs)
-            ->setPrompt('- VŠETKY -');
+            ->setPrompt('- VŠETKY -')
+            ->setAttribute('onchange', 'submit()');
+            
+    $form->onSuccess[] = $this->changeVypis;
+    
+    if (!$form->getForm()->isSubmitted()) {
+      $form->setDefaults(array(
+        'kategoria' => $this->kategoria,
+      ));
+    }
+    
+    
 		return $form;
   }
   
+  //funkcia na zmenu vypisu zariadeni podla zvolenej kategorie (bez vyberu vsetky)
+  public function changeVypis($form)
+  {
+    $values = $form->getValues();
+    $this->kategoria=$values->kategoria;
+    //pokial je kategoria NULL
+    if($this->kategoria===NULL){
+      $this->redirect('UserPage:'); // redirect na Userpage - chceme vypisat vsetky zariadenia
+    }
+    else{   // inak je vypis zariadeni podla kategorie
+      $this->redirect('UserPage:change',$this->kategoria); // presmeruj na change template
+    }
+  }
+  
+  //funkcia pre presmerovanie na pridanie zariadenia
   public function addDeviceFormSubmitted($form)
 	{
     $this->redirect('Device:'); // presmeruj na pridanie zariadenia    
   }
 
+  //funkcia pre presmerovanie na vypis celkovej dennej spotreby
   public function vypisSpotFormSubmitted($form)
 	{
     $this->redirect('Spotreba:'); // presmeruj na vypis celkovej spotreby    
   }
+
 
 	public function handleSignOut()
 	{

@@ -12,13 +12,12 @@ class RateRepository extends Repository
     		return $this->findAll('sadzba')->where('Popis', $popis)->fetch();
 	}	
 
-	/* Vyhladanie sadzby podla id */
+	/* Vyhladanie sadzby podla id sadzby*/
 	public function findById($id)
 	{
     		return $this->findAll('sadzba')->where('id_s', $id)->fetch();
 	}	
-
-
+	
 	/* Pridanie novej sadzby vlozenim do tabulky DB */
 	public function addRate($values)
 	{

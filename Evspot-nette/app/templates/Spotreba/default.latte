@@ -8,17 +8,18 @@
 <HR />
 <BR />
 
-<div align="center"><h3>Celková spotreba v domácnosti.</h3></div>
+<div align="center"><h3>Celková denná spotreba v domácnosti.</h3></div>
 
-Kategoria: 
+<B>Podľa kategórií:</B> 
 <div align="center">
 {foreach $rows as $row}
-{$row->Nazov} = ..... kWh <BR />
+<B>{$row->Nazov} => </B>Odhadovaná sp. = {($array_o[$row->Nazov])?$array_o[$row->Nazov]:'0'} kWh ; Nameraná sp. = {($array_n[$row->Nazov])?$array_n[$row->Nazov]:'0'} kWh<BR /><BR />
 {/foreach}
 <HR />
-SPOLU = .... kWh
+<B>SPOLU =></B> Odhadovaná sp. = {$spolu_o} kWh ; Nameraná sp. = {$spolu_n} kWh 
 <BR /><BR /><BR />
-CENA = Spolu kWh * TARIFA = ....... Eur
+CENA (Za odhadovanú spotrebu) = {$cena_o} Eur <BR />
+CENA (Za nameranú spotrebu) = {$cena_n} Eur
 </div>
 
 <BR /><BR />

@@ -91,7 +91,7 @@ class UpdatePresenter extends BasePresenter
             ->onClick[] = $this->updateDeviceFormCanceled;
             
     if (!$form->getForm()->isSubmitted()) {
-    $form->setDefaults(array(
+      $form->setDefaults(array(
         'nazov' => $row->Nazov,
         'odhadc' => $row->odh_cas,
         'prikon' => $row->Prikon,
@@ -99,7 +99,7 @@ class UpdatePresenter extends BasePresenter
         'kategoria' => $row->id_kat,
         'sadzba' => $row->id_s,
         'id' => $row->id_zar,
-    ));
+      ));
     }
     
 		return $form;
