@@ -1,0 +1,51 @@
+{block #content}
+<div id="banner" align="center">
+	<h3 n:block=title>Vitajte '{$user->getIdentity()->Nickname}' v systéme EVSPOT.
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <a n:href="signOut!"><img id="button" width="90" src="../../images/logoutbutton-md.png" alt="logout" border="0"></a>
+   </h3>
+</div>
+<HR />
+<BR />
+
+<div align="center"><h3>Update zariadenia.</h3></div>
+{form updateDeviceForm}
+ <div class="updateDevice-form" align="center">
+  {control $form errors}
+  <BR/>
+  <fieldset>
+  <div class='container'>
+    {label nazov /}<BR />
+    {input nazov}
+  </div> 
+  <div class='container'>
+    {label odhadc /}<BR />
+    {input odhadc} [hod.]
+  </div> 
+  <div class='container'>
+    {label prikon /}<BR /> 
+    {input prikon} [kW]
+  </div> 
+  <div class='container'>
+    {label namspot /}<BR />
+    {input namspot} [kWh]
+  </div> 
+  <div class='container'>
+    {label kategoria /}<BR />
+    {input kategoria}
+  </div>
+  <div class='container'>
+    {label sadzba /} {input sadzba}
+  </div> 
+  <BR />
+  <div class='container'>
+    {input update} {input cancel}
+  </div>
+  </fieldset>
+ </div>
+{/form}
+
+
+
+
+{/block}

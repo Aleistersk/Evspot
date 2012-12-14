@@ -83,7 +83,7 @@ class UserPagePresenter extends BasePresenter
   public function handleUpdateRow($id)
 	{
 		// TODO:Update
-		$this->redirect('this');
+		$this->redirect('Update:default',$id);
 	}
 
 }

@@ -46,6 +46,18 @@ class DeviceRepository extends Repository
 		));
 	}
 
-
+	/* Uprava udajov (UPDATE) zariadenia v tabulke DB */
+	public function updateDevice($nazov,$odhadc,$prikon,$namspot,$id_kat,$odhads,$id_s,$id_zar)
+	{
+		return $this->findById($id_zar)->update(array(
+			'Nazov' => $nazov,
+			'odh_cas' => $odhadc,
+			'Prikon' => $prikon,
+			'odh_spot' => $odhads,
+			'nam_spot' => $namspot,
+      'id_kat' => $id_kat,
+      'id_s' => $id_s,
+		));
+	}
 
 }
