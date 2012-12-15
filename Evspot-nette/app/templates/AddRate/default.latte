@@ -1,0 +1,33 @@
+{block #content}
+<div id="banner" align="center">
+	<h3 n:block=title>Vitajte '{$user->getIdentity()->Nickname}' v systéme EVSPOT.
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <a n:href="signOut!"><img id="button" width="90" src="../images/logoutbutton-md.png" alt="logout" border="0"></a>
+   </h3>
+</div>
+<HR />
+<BR />
+
+<div align="center"><h3>Pridanie novej sadzby.</h3></div>
+{form addRateForm}
+ <div class="addRate-form" align="center">
+  {control $form errors}
+  <BR/>
+  <fieldset>
+  <div class='container'>
+    {label popis /}<BR />
+    {input popis}
+  </div>
+  <div class='container'>
+    {label cena /}<BR />
+    {input cena}
+  </div> 
+ 
+  <div class='container'>
+    {input add} {input cancel}
+  </div>
+  </fieldset>
+ </div>
+{/form}
+
+{/block}

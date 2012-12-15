@@ -24,9 +24,23 @@ class RateRepository extends Repository
 		return $this->getTable('sadzba')->insert(array(
 			'Popis' => $values->popis,
 			'Cena' => $values->cena,
-		));
+		));      
+	}
+
+  /* Vymazanie kategorie podla Id_sadzby */
+	public function deleteRow($id)
+	{
+    		return $this->findAll('sadzba')->where('id_s', $id)->fetch()->delete();
 	}
 
 
-
+  /* Uprava udajov (UPDATE) sadzby v tabulke DB */
+	public function updateRate($popis,$cena,$id_s)
+	{
+		return $this->findById($id_s)->update(array(
+			'Popis' => $popis,
+      'Cena' => $cena,
+		));
+	}
+  
 }

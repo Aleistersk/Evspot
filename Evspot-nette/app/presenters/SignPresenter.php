@@ -53,7 +53,13 @@ class SignPresenter extends BasePresenter
         		}
         		$user->login($values->nickname, $values->heslo);
         		//$this->flashMessage('Prihlasenie bolo uspesne.', 'success');
-        		$this->redirect('UserPage:');
+            //test, ci je prihlaseny admin
+            if($values->nickname==="Admin"){
+                $this->redirect('AdminPage:'); //ak je to admin, presmeruj na jeho homepage
+            }
+            else{  // inak je to user
+        		    $this->redirect('UserPage:'); // presmeruj na userpage
+                }
     		} 
 		catch (Nette\Security\AuthenticationException $e) {
         		$form->addError('Neplatné používateľské meno, alebo heslo. Zadajte znova!');

@@ -38,10 +38,12 @@ class RegisterPresenter extends BasePresenter
 			->addRule(UI\Form::EMAIL, 'Zadajte prosím platný e-mail!');
 
 		$form->addText('nickname','Používateľské meno*:',30)
-			->setRequired('Prosím zadajte Vaše používateľské meno!');
+			->setRequired('Prosím zadajte Vaše používateľské meno!')
+      ->addRule(~$form::EQUAL, 'Bolo použité zakázané používateľské meno!', array('admin', 'administrator','Admin', 'root', 'ROOT','Administrator'));;
 
 		$form->addPassword('heslo','Heslo*:',30)
-			->setRequired('Prosím zadajte Vaše heslo!');
+			->setRequired('Prosím zadajte Vaše heslo!')
+      ->addRule($form::MIN_LENGTH, 'Minimálna dĺžka hesla je %d znakov', 5);
 
 
 		$form->addSubmit('register','REGISTROVAŤ');

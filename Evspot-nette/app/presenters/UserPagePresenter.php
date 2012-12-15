@@ -119,7 +119,7 @@ class UserPagePresenter extends BasePresenter
   
   public function handleUpdateRow($id)
 	{
-		// TODO:Update
+		// presmerovanie na update stranku s formularom, parametrom je id_zar
 		$this->redirect('Update:default',$id);
 	}
 

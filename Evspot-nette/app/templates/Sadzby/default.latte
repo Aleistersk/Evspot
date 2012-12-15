@@ -1,0 +1,52 @@
+{block #content}
+<div id="banner" align="center">
+	<h3 n:block=title>Vitajte '{$user->getIdentity()->Nickname}' v systéme EVSPOT.
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <a n:href="signOut!"><img id="button" width="90" src="../images/logoutbutton-md.png" alt="logout" border="0"></a>
+   </h3>
+</div>
+<HR />
+<BR />
+
+
+<div>
+{form katForm}
+  <div>MENU: {input kategoria}</div>
+{/form}
+</div>
+<HR />
+<div>
+{form addSadzbaForm}
+  <div>{input add}</div>
+{/form}
+</div>
+
+<!-- Tabulka sadzieb  -->
+<h2>Sadzby:</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>Id.</th>
+        <th>Popis sadzby</th>
+        <th>Cena</th>
+        <th>Upraviť</th>
+        <th>Vymazať</th>
+    </tr>
+    </thead>
+    <tbody>
+    {foreach $sadzby as $row}
+    <tr>
+        <td>{$row->id_s}</td>
+        <td>{$row->Popis}</td>
+        <td>{$row->Cena}</td>
+        <td align="center"><a n:href="UpdateRow! $row->id_s">Uprav!</a></td>
+        <td align="center"><a n:href="DeleteRow! $row->id_s">Vymaž!</a></td>
+    </tr>
+    {/foreach}
+    </tbody>
+</table>
+
+
+
+{/block}

@@ -32,6 +32,20 @@ class CathegoryRepository extends Repository
 		));
 	}
 
+  /* Vymazanie kategorie podla Id_kategorie */
+	public function deleteRow($id)
+	{
+    		return $this->findAll('kategoria')->where('id_kat', $id)->fetch()->delete();
+	}
+  
+	/* Uprava udajov (UPDATE) kategorie v tabulke DB */
+	public function updateCath($nazov,$id_kat)
+	{
+		return $this->findById($id_kat)->update(array(
+			'Nazov' => $nazov,
+		));
+	}
+	
 
 
 }
