@@ -30,7 +30,7 @@ DROP TABLE IF EXISTS `sadzba`;
 CREATE TABLE IF NOT EXISTS `sadzba` (
   `id_s` int(5) unsigned NOT NULL AUTO_INCREMENT,
   `Popis` varchar(20) COLLATE utf8_slovak_ci NOT NULL,
-  `Cena` float(5,2) unsigned NOT NULL,
+  `Cena` float(5,4) unsigned NOT NULL,
   PRIMARY KEY (`id_s`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci AUTO_INCREMENT=4 ;
 
